@@ -1,0 +1,22 @@
+﻿@model PartyInvitesWebApp.Models.GuestResponse
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Your Name: @Html.TextBoxFor(x => x.Name)</p>
+        <p>Your Email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Your Phone: @Html.TextBoxFor(x => x.Phone)</p>
+        <p>Number of Friends: @Html.TextBoxFor(x => x.NumberOfFriends)</p>
+        <p>
+            Will you attend?
+            @Html.DropDownListFor(x => x.WillAttend, new[]
+                {
+                    new SelectListItem() {Text="Choose an option", Value = null},
+                    new SelectListItem() {Text = "Yes, I'll be there", Value = bool.TrueString},
+                    new SelectListItem() {Text = "No, I won't be there", Value = bool.FalseString}
+                })
+        </p>
+        <input type="submit" value="Submit RSVP" />
+    }
+</div>
