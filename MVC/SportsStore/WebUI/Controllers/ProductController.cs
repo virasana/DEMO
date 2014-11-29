@@ -11,16 +11,19 @@ namespace WebUI.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository _repository;
+        public int PageSize = 4;
 
-        [Inject]
         public ProductController(IProductRepository repository)
         {
             _repository = repository;
         }
 
-        public ActionResult List()
+        public ViewResult List(int page = 1)
         {
-            return View(_repository.Products);
+            return View(_repository.Products
+                .OrderBy(p => p.ProductId)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize));
         }
     }
 }

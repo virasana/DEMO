@@ -103,6 +103,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{7F3EA787-FFB8-47D9-8CCB-8ACF11595C77}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebUI\WebUI.csproj">
+      <Project>{5F934933-7B00-4188-B874-82B5699235E0}</Project>
+      <Name>WebUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
