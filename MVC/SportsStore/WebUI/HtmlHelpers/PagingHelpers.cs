@@ -14,7 +14,7 @@ namespace WebUI.HtmlHelpers
             Func<int, string> pageUrlBuilder)
         {
             var sb = new StringBuilder();
-            for (int i = 1; i < pagingInfoViewModel.TotalPages; i++)
+            for (var i = 1; i < pagingInfoViewModel.TotalPages; i++)
             {
                 var tag = new TagBuilder("a");
                 tag.MergeAttribute("href", pageUrlBuilder(i));
