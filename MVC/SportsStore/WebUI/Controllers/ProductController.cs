@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Domain.Abstract;
 using Ninject;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
@@ -20,10 +21,20 @@ namespace WebUI.Controllers
 
         public ViewResult List(int page = 1)
         {
-            return View(_repository.Products
+            var model = new ProductsListViewModel
+            {
+                Products = _repository.Products
                 .OrderBy(p => p.ProductId)
                 .Skip((page - 1) * PageSize)
-                .Take(PageSize));
+                .Take(PageSize),
+                PagingInfoViewModel = new PagingInfoViewModel()
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = _repository.Products.Count()
+                }
+            };
+            return View(model);
         }
     }
 }

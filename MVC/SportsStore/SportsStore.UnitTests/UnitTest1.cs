@@ -28,10 +28,10 @@ namespace SportsStore.UnitTests
                 new Product(){ ProductId = 4, Name = "P4"},
                 new Product(){ ProductId = 5, Name = "P5"}
             });
-
+            
             var productController = new ProductController(mock.Object) {PageSize = 3};
 
-            var result = ((IEnumerable<Product>)productController.List(2).Model).ToArray();
+            var result = ((ProductsListViewModel) productController.List(2).Model).Products.ToArray();
 
             Assert.IsTrue(result.Length == 2, "Expected to find 2 products.");
         }
@@ -40,7 +40,7 @@ namespace SportsStore.UnitTests
         public void Can_Generate_Page_Links()
         {
             // Arrange
-            HtmlHelper htmlHelper = null;
+            var htmlHelper = new HtmlHelper(null, null);
 
             var pagingInfoViewModel = new PagingInfoViewModel()
             {
@@ -58,8 +58,29 @@ namespace SportsStore.UnitTests
             const string match = @"<a class=""btn btn-default"" href=""Page 1"">1</a><a class=""btn btn-default btn-primary selected"" href=""Page 2"">2</a>";
 
             Assert.AreEqual(match, result.ToString());
+        }
 
+        [TestMethod]
+        public void Can_Send_Pagination_View_Model()
+        {
+            var mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product(){ ProductId = 1, Name = "P1"},
+                new Product(){ ProductId = 2, Name = "P2"},
+                new Product(){ ProductId = 3, Name = "P3"},
+                new Product(){ ProductId = 4, Name = "P4"},
+                new Product(){ ProductId = 5, Name = "P5"}
+            });
 
+            var productController = new ProductController(mock.Object) {PageSize = 3};
+
+            var result = (ProductsListViewModel)productController.List(2).Model;
+
+            var pagingInfo = result.PagingInfoViewModel;
+
+            Assert.AreEqual(result.PagingInfoViewModel.CurrentPage, 2);
+            Assert.AreEqual(result.PagingInfoViewModel.ItemsPerPage, 3);
         }
     }
 }
