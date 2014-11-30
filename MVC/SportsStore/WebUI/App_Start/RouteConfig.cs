@@ -15,10 +15,13 @@ namespace WebUI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(null,
-                "", 
-                new {
-                    controller = "Product", action = "List", 
-                    category = (string)null, page=1
+                "",
+                new
+                {
+                    controller = "Product",
+                    action = "List",
+                    category = (string)null,
+                    page = 1
                 }
             );
 
@@ -37,6 +40,8 @@ namespace WebUI
                 new { controller = "Product", action = "List", page = 1 },
                   new { page = @"\d+" }
                 );
+
+            routes.MapRoute(null, "{controller}/{action}");
         }
 
        
