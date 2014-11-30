@@ -19,5 +19,7 @@ namespace WebUI.Models
                 return result;
             }
         }
+
+        public string Category { get; set; }
     }
 }
