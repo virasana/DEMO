@@ -14,7 +14,7 @@ namespace WebUI.HtmlHelpers
             Func<int, string> pageUrlBuilder)
         {
             var sb = new StringBuilder();
-            for (var i = 1; i < pagingInfoViewModel.TotalPages; i++)
+            for (var i = 1; i <= pagingInfoViewModel.TotalPages; i++)
             {
                 var tag = new TagBuilder("a");
                 tag.MergeAttribute("href", pageUrlBuilder(i));
@@ -27,6 +27,8 @@ namespace WebUI.HtmlHelpers
 
                 tag.AddCssClass("btn btn-default");
                 sb.Append(tag.ToString());
+
+                sb.Append(" | ");
             }
 
             return MvcHtmlString.Create(sb.ToString());

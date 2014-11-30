@@ -13,7 +13,11 @@ namespace WebUI.Models
 
         public int TotalPages
         {
-            get { return (int)Math.Ceiling((decimal) TotalItems/ItemsPerPage); }
+            get
+            {
+                var result= (int)Math.Ceiling((decimal) TotalItems/ItemsPerPage);
+                return result;
+            }
         }
     }
 }
