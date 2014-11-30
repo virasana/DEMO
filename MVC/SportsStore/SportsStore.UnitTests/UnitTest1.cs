@@ -19,28 +19,55 @@ namespace SportsStore.UnitTests
         [TestMethod]
         public void Can_Paginate()
         {
+            var mock = GetMockProducts();
+
+            var productController = new ProductController(mock.Object) { PageSize = 3 };
+
+            var result = ((ProductsListViewModel)productController.List(null, 2).Model).Products.ToArray();
+
+            Assert.IsTrue(result.Length == 2, "Expected to find 2 products.");
+        }
+
+        private static Mock<IProductRepository> GetMockProducts()
+        {
             var mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new Product[]
             {
-                new Product(){ ProductId = 1, Name = "P1"},
-                new Product(){ ProductId = 2, Name = "P2"},
-                new Product(){ ProductId = 3, Name = "P3"},
-                new Product(){ ProductId = 4, Name = "P4"},
-                new Product(){ ProductId = 5, Name = "P5"}
+                new Product(){ ProductId = 1, Name = "P1", Category = "C1"},
+                new Product(){ ProductId = 2, Name = "P2", Category = "C1"},
+                new Product(){ ProductId = 3, Name = "P3", Category = "C2"},
+                new Product(){ ProductId = 4, Name = "P4", Category = "C2"},
+                new Product(){ ProductId = 5, Name = "P5", Category = "C3"}
             });
-            
-            var productController = new ProductController(mock.Object) {PageSize = 3};
+            return mock;
+        }
 
-            var result = ((ProductsListViewModel) productController.List(2).Model).Products.ToArray();
+        [TestMethod]
+        public void Can_Filter_Products()
+        {
+            // Arrange
+            var mockRepository = GetMockProducts();
+            var productController = GetProductController();
 
-            Assert.IsTrue(result.Length == 2, "Expected to find 2 products.");
+            // Act
+            var result = ((ProductsListViewModel)productController.List("C2").Model).Products.ToArray();
+
+            // Assert
+            Assert.IsTrue(result.Length == 2, "Two products expected.");
+            Assert.IsTrue(result[0].Name == "P3" && result[0].Category == "C2", "Expected Name==P3 and Cateogory==C2");
+            Assert.IsTrue(result[1].Name =="P4" && result[1].Category == "C2", "Expected Name==P4 and Cateogory==C2");
+        }
+
+        private ProductController GetProductController()
+        {
+            return new ProductController(GetMockProducts().Object);
         }
 
         [TestMethod]
         public void Can_Generate_Page_Links()
         {
             // Arrange
-            var htmlHelper = new HtmlHelper(null, null);
+            HtmlHelper htmlHelper = null;
 
             var pagingInfoViewModel = new PagingInfoViewModel()
             {
@@ -48,14 +75,14 @@ namespace SportsStore.UnitTests
                 TotalItems = 28,
                 ItemsPerPage = 10
             };
-            
+
             Func<int, string> pageUrlBuilder = i => "Page " + i;
 
             // Act
             var result = htmlHelper.PageLinks(pagingInfoViewModel, pageUrlBuilder);
 
             // Assert
-            const string match = @"<a class=""btn btn-default"" href=""Page 1"">1</a><a class=""btn btn-default btn-primary selected"" href=""Page 2"">2</a>";
+            const string match = @"<a class=""btn btn-default"" href=""Page 1"">1</a><a class=""btn btn-default btn-primary selected"" href=""Page 2"">2</a><a class=""btn btn-default"" href=""Page 3"">3</a>";
 
             Assert.AreEqual(match, result.ToString());
         }
@@ -63,19 +90,9 @@ namespace SportsStore.UnitTests
         [TestMethod]
         public void Can_Send_Pagination_View_Model()
         {
-            var mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new Product[]
-            {
-                new Product(){ ProductId = 1, Name = "P1"},
-                new Product(){ ProductId = 2, Name = "P2"},
-                new Product(){ ProductId = 3, Name = "P3"},
-                new Product(){ ProductId = 4, Name = "P4"},
-                new Product(){ ProductId = 5, Name = "P5"}
-            });
+            var productController = GetProductController();
 
-            var productController = new ProductController(mock.Object) {PageSize = 3};
-
-            var result = (ProductsListViewModel)productController.List(2).Model;
+            var result = (ProductsListViewModel)productController.List(null, 2).Model;
 
             var pagingInfo = result.PagingInfoViewModel;
 
