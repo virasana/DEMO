@@ -27,8 +27,6 @@ namespace WebUI.HtmlHelpers
 
                 tag.AddCssClass("btn btn-default");
                 sb.Append(tag.ToString());
-
-                sb.Append(" | ");
             }
 
             return MvcHtmlString.Create(sb.ToString());
