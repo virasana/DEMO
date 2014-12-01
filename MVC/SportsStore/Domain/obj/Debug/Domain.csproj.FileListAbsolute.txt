@@ -36,6 +36,5 @@ D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\bin\Debug\System.Web.Razor.xml
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\bin\Debug\System.Web.WebPages.xml
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\bin\Debug\System.Web.WebPages.Razor.xml
-D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\obj\Debug\Domain.dll
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\obj\Debug\Domain.pdb

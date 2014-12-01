@@ -19,7 +19,7 @@ namespace SportsStore.UnitTests
         [TestMethod]
         public void Can_Paginate()
         {
-            var mock = GetMockProducts();
+            var mock = GetMockProductsRepository();
 
             var productController = new ProductController(mock.Object) { PageSize = 3 };
 
@@ -28,7 +28,7 @@ namespace SportsStore.UnitTests
             Assert.IsTrue(result.Length == 2, "Expected to find 2 products.");
         }
 
-        private static Mock<IProductRepository> GetMockProducts()
+        private static Mock<IProductRepository> GetMockProductsRepository()
         {
             var mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new Product[]
@@ -46,7 +46,7 @@ namespace SportsStore.UnitTests
         public void Can_Filter_Products()
         {
             // Arrange
-            var mockRepository = GetMockProducts();
+            var mockRepository = GetMockProductsRepository();
             var productController = GetProductController();
 
             // Act
@@ -55,12 +55,12 @@ namespace SportsStore.UnitTests
             // Assert
             Assert.IsTrue(result.Length == 2, "Two products expected.");
             Assert.IsTrue(result[0].Name == "P3" && result[0].Category == "C2", "Expected Name==P3 and Cateogory==C2");
-            Assert.IsTrue(result[1].Name =="P4" && result[1].Category == "C2", "Expected Name==P4 and Cateogory==C2");
+            Assert.IsTrue(result[1].Name == "P4" && result[1].Category == "C2", "Expected Name==P4 and Cateogory==C2");
         }
 
         private ProductController GetProductController()
         {
-            return new ProductController(GetMockProducts().Object);
+            return new ProductController(GetMockProductsRepository().Object);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace SportsStore.UnitTests
                 ItemsPerPage = 10
             };
 
-            Func<int, string> pageUrlBuilder = i => "Page " + i;
+            PagingHelpers.PageBuilderDelegate pageUrlBuilder = (page, category) => "Page " + category;
 
             // Act
             var result = htmlHelper.PageLinks(pagingInfoViewModel, pageUrlBuilder);
@@ -98,6 +98,20 @@ namespace SportsStore.UnitTests
 
             Assert.AreEqual(result.PagingInfoViewModel.CurrentPage, 2);
             Assert.AreEqual(result.PagingInfoViewModel.ItemsPerPage, 3);
+        }
+
+        [TestMethod]
+        public void Can_Create_Categories()
+        {
+            // Arrange
+            var productRepository = GetMockProductsRepository().Object;
+            var navController = new NavController(productRepository);
+            
+            // Act
+            var results = ((IEnumerable<string>)navController.Menu().Model).ToArray();
+
+            // Assert
+            Assert.AreEqual(results.Length, 3, "Expected 3 categories");
         }
     }
 }
