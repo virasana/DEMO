@@ -1,9 +1,9 @@
-﻿@model IEnumerable<string>
+﻿@model WebUI.Models.MenuViewModel
 
 
 @Html.ActionLink("Home", "List", "Product", null, new { @class = "btn btn-block btn-default btn-lg" })
 
-@foreach (var link in Model)
+@foreach (var link in Model.Categories)
 {
     @Html.RouteLink(link, new
     {
@@ -12,5 +12,5 @@
         category = link,
         page = 1
     },
-    new { @class = "btn btn-block btn-default btn-lg" });
+    new { @class = "btn btn-block btn-default btn-lg" + (link == Model.SelectedCategory ? "btn-primary" : string.Empty) });
 }

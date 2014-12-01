@@ -4,24 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Domain.Abstract;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
     public class NavController : Controller
     {
-        private IProductRepository _repository;
+        private readonly IProductRepository _repository;
 
         public NavController(IProductRepository repository)
         {
             _repository = repository;
         }
-        public PartialViewResult Menu()
+        public PartialViewResult Menu(string category)
         {
             var categories = _repository.Products.Select(x => x.Category)
                 .Distinct()
                 .OrderBy(x => x);
-            
-            return PartialView(categories);
+
+            var menuViewModel = new MenuViewModel {Categories = categories, SelectedCategory = category};
+            return PartialView("Menu", menuViewModel);
         }
     }
 }

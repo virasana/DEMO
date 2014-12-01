@@ -82,7 +82,7 @@ namespace SportsStore.UnitTests
             var result = htmlHelper.PageLinks(pagingInfoViewModel, pageUrlBuilder);
 
             // Assert
-            const string match = @"<a class=""btn btn-default"" href=""Page 1"">1</a><a class=""btn btn-default btn-primary selected"" href=""Page 2"">2</a><a class=""btn btn-default"" href=""Page 3"">3</a>";
+            const string match = "<a class=\"btn btn-default\" href=\"Page \">1</a><a class=\"btn btn-default btn-primary selected\" href=\"Page \">2</a><a class=\"btn btn-default\" href=\"Page \">3</a>";
 
             Assert.AreEqual(match, result.ToString());
         }
@@ -108,10 +108,21 @@ namespace SportsStore.UnitTests
             var navController = new NavController(productRepository);
             
             // Act
-            var results = ((IEnumerable<string>)navController.Menu().Model).ToArray();
+            var results = ((IEnumerable<string>)navController.Menu(null).Model).ToArray();
 
             // Assert
             Assert.AreEqual(results.Length, 3, "Expected 3 categories");
+        }
+
+        [TestMethod]
+        public void Indicates_Selected_Category()
+        {
+            var navController = new NavController(GetMockProductsRepository().Object);
+            const string selectedCategory = "C2";
+
+            var result = navController.Menu(selectedCategory);
+
+            Assert.AreEqual(selectedCategory, ((MenuViewModel)result.Model).SelectedCategory);
         }
     }
 }
