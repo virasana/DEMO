@@ -14,12 +14,12 @@ using WebUI.Models;
 namespace SportsStore.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class ProductControllerTests
     {
         [TestMethod]
         public void Can_Paginate()
         {
-            var mock = GetMockProductsRepository();
+            var mock = Helpers.GetMockProductsRepository();
 
             var productController = new ProductController(mock.Object) { PageSize = 3 };
 
@@ -28,25 +28,11 @@ namespace SportsStore.UnitTests
             Assert.IsTrue(result.Length == 2, "Expected to find 2 products.");
         }
 
-        private static Mock<IProductRepository> GetMockProductsRepository()
-        {
-            var mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new Product[]
-            {
-                new Product(){ ProductId = 1, Name = "P1", Category = "C1"},
-                new Product(){ ProductId = 2, Name = "P2", Category = "C1"},
-                new Product(){ ProductId = 3, Name = "P3", Category = "C2"},
-                new Product(){ ProductId = 4, Name = "P4", Category = "C2"},
-                new Product(){ ProductId = 5, Name = "P5", Category = "C3"}
-            });
-            return mock;
-        }
-
         [TestMethod]
         public void Can_Filter_Products()
         {
             // Arrange
-            var mockRepository = GetMockProductsRepository();
+            var mockRepository = Helpers.GetMockProductsRepository();
             var productController = GetProductController();
 
             // Act
@@ -60,7 +46,7 @@ namespace SportsStore.UnitTests
 
         private ProductController GetProductController()
         {
-            return new ProductController(GetMockProductsRepository().Object);
+            return new ProductController(Helpers.GetMockProductsRepository().Object);
         }
 
         [TestMethod]
@@ -104,7 +90,7 @@ namespace SportsStore.UnitTests
         public void Can_Create_Categories()
         {
             // Arrange
-            var productRepository = GetMockProductsRepository().Object;
+            var productRepository = Helpers.GetMockProductsRepository().Object;
             var navController = new NavController(productRepository);
             
             // Act
@@ -117,7 +103,7 @@ namespace SportsStore.UnitTests
         [TestMethod]
         public void Indicates_Selected_Category()
         {
-            var navController = new NavController(GetMockProductsRepository().Object);
+            var navController = new NavController(Helpers.GetMockProductsRepository().Object);
             const string selectedCategory = "C2";
 
             var result = navController.Menu(selectedCategory);
