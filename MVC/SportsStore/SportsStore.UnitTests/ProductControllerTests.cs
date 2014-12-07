@@ -106,7 +106,7 @@ namespace SportsStore.UnitTests
             var navController = new NavController(productRepository);
             
             // Act
-            var results = ((IEnumerable<string>)navController.Menu(null).Model).ToArray();
+            var results = ((MenuViewModel)navController.Menu(null).Model).Categories.ToArray();
 
             // Assert
             Assert.AreEqual(results.Length, 3, "Expected 3 categories");
