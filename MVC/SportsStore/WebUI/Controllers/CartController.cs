@@ -18,6 +18,11 @@ namespace WebUI.Controllers
             _repository = repository;
         }
 
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
         public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
         {
             var product = _repository.Products.FirstOrDefault(p => p.ProductId == productId);
@@ -33,7 +38,7 @@ namespace WebUI.Controllers
         public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl)
         {
             var product = _repository.Products.FirstOrDefault(p => p.ProductId == productId);
-            if (product == null)
+            if (product != null)
             {
                 cart.RemoveLine(product);
             }
