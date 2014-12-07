@@ -11,7 +11,7 @@ namespace SportsStore.UnitTests
 {
     public class Helpers
     {
-        public static Mock<IProductRepository> GetMockProductsRepository()
+        public static IProductRepository GetMockProductsRepository()
         {
             var mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new Product[]
@@ -22,7 +22,7 @@ namespace SportsStore.UnitTests
                 new Product(){ ProductId = 4, Name = "P4", Category = "C2"},
                 new Product(){ ProductId = 5, Name = "P5", Category = "C3"}
             });
-            return mock;
+            return mock.Object;
         }
 
     }

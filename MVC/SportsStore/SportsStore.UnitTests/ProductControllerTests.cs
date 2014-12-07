@@ -21,7 +21,7 @@ namespace SportsStore.UnitTests
         {
             var mock = Helpers.GetMockProductsRepository();
 
-            var productController = new ProductController(mock.Object) { PageSize = 3 };
+            var productController = new ProductController(mock) { PageSize = 3 };
 
             var result = ((ProductsListViewModel)productController.List(null, 2).Model).Products.ToArray();
 
@@ -46,7 +46,19 @@ namespace SportsStore.UnitTests
 
         private ProductController GetProductController()
         {
-            return new ProductController(Helpers.GetMockProductsRepository().Object);
+            return new ProductController(Helpers.GetMockProductsRepository());
+        }
+
+        [TestMethod]
+        public void Can_ViewCart_Contents()
+        {
+            var cart = new Cart();
+
+            var cartController = new CartController(Helpers.GetMockProductsRepository());
+
+            var result = ((CartIndexViewModel)cartController.Index(cart, "myUrl").ViewData.Model).Cart;
+
+            Assert.AreSame(cart, result, "Cart retured from CartController.Index is not the same as the expected Cart.");
         }
 
         [TestMethod]
@@ -90,7 +102,7 @@ namespace SportsStore.UnitTests
         public void Can_Create_Categories()
         {
             // Arrange
-            var productRepository = Helpers.GetMockProductsRepository().Object;
+            var productRepository = Helpers.GetMockProductsRepository();
             var navController = new NavController(productRepository);
             
             // Act
@@ -103,7 +115,7 @@ namespace SportsStore.UnitTests
         [TestMethod]
         public void Indicates_Selected_Category()
         {
-            var navController = new NavController(Helpers.GetMockProductsRepository().Object);
+            var navController = new NavController(Helpers.GetMockProductsRepository());
             const string selectedCategory = "C2";
 
             var result = navController.Menu(selectedCategory);

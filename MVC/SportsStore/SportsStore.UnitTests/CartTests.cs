@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject.Planning.Targets;
+using WebUI.Controllers;
 
 namespace SportsStore.UnitTests
 {
@@ -15,7 +16,7 @@ namespace SportsStore.UnitTests
         [TestMethod]
         public void Can_Add_New_Lines()
         {
-            var products = Helpers.GetMockProductsRepository().Object.Products.ToArray();
+            var products = Helpers.GetMockProductsRepository().Products.ToArray();
 
             var cart = new Cart();
 
@@ -27,6 +28,19 @@ namespace SportsStore.UnitTests
             Assert.AreEqual(results.Length, 2);
             Assert.AreEqual(results[0].Product, products[0]);
             Assert.AreEqual(results[1].Product, products[1]);
+        }
+
+        [TestMethod]
+        public void Adding_Product_To_Cart_Goes_To_Cart_Screen()
+        {
+            var productRepository = Helpers.GetMockProductsRepository();
+            var cart = new Cart();
+            var cartController = new CartController(productRepository);
+
+            var result = cartController.AddToCart(cart, 2, "myUrl");
+
+            Assert.AreEqual(result.RouteValues["action"], "Index");
+            Assert.AreEqual(result.RouteValues["returnUrl"], "myUrl");
         }
     }
 }
