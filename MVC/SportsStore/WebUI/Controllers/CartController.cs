@@ -49,5 +49,10 @@ namespace WebUI.Controllers
         {
             return View(new CartIndexViewModel { Cart = cart, ReturnUrl = returnUrl });
         }
+
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
     }
 }

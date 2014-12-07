@@ -38,3 +38,4 @@ D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\bin\Debug\System.Web.WebPages.Deployment
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\bin\Debug\System.Web.WebPages.Razor.xml
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\obj\Debug\Domain.dll
 D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\obj\Debug\Domain.pdb
+D:\DATA\GIT\PLAY\MVC\SportsStore\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
