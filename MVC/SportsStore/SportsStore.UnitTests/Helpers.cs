@@ -11,6 +11,12 @@ namespace SportsStore.UnitTests
 {
     public class Helpers
     {
+        public static IOrderProcessor GetMockOrderProcessor()
+        {
+            var orderProcessor = new Mock<IOrderProcessor>();
+            return orderProcessor.Object;
+        }
+
         public static IProductRepository GetMockProductsRepository()
         {
             var mock = new Mock<IProductRepository>();

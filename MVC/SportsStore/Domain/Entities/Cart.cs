@@ -38,6 +38,11 @@ namespace Domain.Entities
         public IEnumerable<CartLine> CartLines {
             get { return _lineCollection;  }
         }
+
+        public void Clear()
+        {
+            _lineCollection.Clear();
+        }
     }
 
     public class CartLine

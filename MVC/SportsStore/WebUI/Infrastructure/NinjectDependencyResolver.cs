@@ -25,6 +25,11 @@ namespace WebUI.Infrastructure
         {
             var productRepository = new EfProductRepository();
             _kernel.Bind<IProductRepository>().ToConstant(productRepository);
+
+            var emailSettings = new EmailSettings {WriteAsFile = true};  // Get From App.Config
+
+            _kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+
         }
 
         public object GetService(Type serviceType)

@@ -54,7 +54,7 @@ namespace SportsStore.UnitTests
         {
             var cart = new Cart();
 
-            var cartController = new CartController(Helpers.GetMockProductsRepository());
+            var cartController = new CartController(Helpers.GetMockProductsRepository(), null);
 
             var result = ((CartIndexViewModel)cartController.Index(cart, "myUrl").ViewData.Model).Cart;
 
