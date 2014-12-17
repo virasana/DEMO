@@ -104,7 +104,7 @@ namespace SportsStore.UnitTests
             // Arrange
             var productRepository = Helpers.GetMockProductsRepository();
             var navController = new NavController(productRepository);
-            
+
             // Act
             var results = ((MenuViewModel)navController.Menu(null).Model).Categories.ToArray();
 

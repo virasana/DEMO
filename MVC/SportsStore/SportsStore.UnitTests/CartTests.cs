@@ -59,8 +59,27 @@ namespace SportsStore.UnitTests
 
             // Assert
             orderProcessorMock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
-            Assert.AreEqual("", result.ViewName );
+            Assert.AreEqual("", result.ViewName);
             Assert.IsFalse(result.ViewData.ModelState.IsValid);
+        }
+
+        [TestMethod]
+        public void Can_Checkout_And_Submit_Order()
+        {
+            // Arrange
+            var orderProcessorMock = new Mock<IOrderProcessor>();
+            var cart = new Cart();
+            cart.AddItem(new Product(), 1);
+            var shippingDetails = new ShippingDetails();
+            var cartController = new CartController(null, orderProcessorMock.Object);
+
+            // Act
+            var result = cartController.Checkout(cart, shippingDetails);
+
+            // Assert
+            orderProcessorMock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Once());
+            Assert.AreEqual("Completed", result.ViewName);
+            Assert.IsTrue(result.ViewData.ModelState.IsValid);
         }
     }
 }
