@@ -12,8 +12,10 @@ namespace DemoCustomConfigSections
     {
         static void Main(string[] args)
         {
-            var config = (ComputerSection)ConfigurationManager.GetSection("computerGroup/computer");
-            Console.WriteLine(config.NetBiosName);
+            var computerConfigSection = (ComputersConfigurationSection)ConfigurationManager.GetSection("ComputersSection");
+
+            if (computerConfigSection != null) Console.WriteLine(computerConfigSection.Computers.Count);
+
             Console.ReadKey();
         }
     }
