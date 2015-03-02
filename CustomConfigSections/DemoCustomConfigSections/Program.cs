@@ -16,14 +16,14 @@ namespace DemoCustomConfigSections
 
             if (environmentsConfig != null)
             {
-
                 foreach (EnvironmentElement env in environmentsConfig.Environments)
                 {
-                    Console.WriteLine(env.Name);
+                    Console.WriteLine("{0}",env.Name);
 
                     foreach (ComputerElement computerConfig in env.Computers)
                     {
                         Console.WriteLine("\t{0}", computerConfig.Name);
+
                         foreach (DriveElement drive in computerConfig.Drives)
                         {
                             Console.WriteLine("\t\t{0} ({1})", drive.Name, drive.MinimumSpaceRequired);
