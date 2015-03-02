@@ -3,11 +3,12 @@ using System.Configuration;
 
 namespace ConfigurationSectionsLibrary
 {
-    public class ComputerCollection : ConfigurationElementCollection
+    [ConfigurationCollection(typeof(EnvironmentElement))]
+    public class EnvironmentsCollection : ConfigurationElementCollection
     {
-        //public ComputerElement this[int index]
+        //public EnvironmentElement this[int index]
         //{
-        //    get { return (ComputerElement)BaseGet(index); }
+        //    get { return (EnvironmentElement)BaseGet(index); }
         //    set
         //    {
         //        if (BaseGet(index) != null)
@@ -18,9 +19,9 @@ namespace ConfigurationSectionsLibrary
         //    }
         //}
 
-        //public void Add(ComputerElement computerConfig)
+        //public void Add(EnvironmentElement environmentConfig)
         //{
-        //    BaseAdd(computerConfig);
+        //    BaseAdd(environmentConfig);
         //}
 
         //public void Clear()
@@ -30,17 +31,17 @@ namespace ConfigurationSectionsLibrary
 
         //protected override ConfigurationElement CreateNewElement()
         //{
-        //    return new ComputerElement();
+        //    return new EnvironmentElement();
         //}
 
         //protected override object GetElementKey(ConfigurationElement element)
         //{
-        //    return ((ComputerElement)element).Name;
+        //    return ((EnvironmentElement)element).Name;
         //}
 
-        //public void Remove(ComputerElement computerConfig)
+        //public void Remove(EnvironmentElement environmentConfig)
         //{
-        //    BaseRemove(computerConfig.Name);
+        //    BaseRemove(environmentConfig.Name);
         //}
 
         //public void RemoveAt(int index)
@@ -53,7 +54,7 @@ namespace ConfigurationSectionsLibrary
         //    BaseRemove(name);
         //}
 
-        internal const string PropertyName = "computer";
+        internal const string PropertyName = "Environment";
 
         public override ConfigurationElementCollectionType CollectionType
         {
@@ -82,19 +83,19 @@ namespace ConfigurationSectionsLibrary
 
         protected override ConfigurationElement CreateNewElement()
         {
-            return new ComputerElement();
+            return new EnvironmentElement();
         }
 
         protected override object GetElementKey(ConfigurationElement environmentConfig)
         {
-            return ((ComputerElement)(environmentConfig)).Name;
+            return ((EnvironmentElement)(environmentConfig)).Name;
         }
 
-        public ComputerElement this[int idx]
+        public EnvironmentElement this[int idx]
         {
             get
             {
-                return (ComputerElement)BaseGet(idx);
+                return (EnvironmentElement)BaseGet(idx);
             }
         }
     }

@@ -40,10 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComputerConfig.cs" />
+    <Compile Include="DriveElement.cs" />
+    <Compile Include="EnvironmentElement.cs" />
+    <Compile Include="DrivesCollection.cs" />
+    <Compile Include="EnvironmentsCollection.cs" />
+    <Compile Include="ComputerElement.cs" />
     <Compile Include="ComputerCollection.cs" />
-    <Compile Include="ComputersConfigurationSection.cs" />
+    <Compile Include="EnvironmentsConfigurationSection.cs" />
+    <Compile Include="ConfigurationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InterfacesLibrary\InterfacesLibrary.csproj">
+      <Project>{8899c20e-057d-47d0-870d-aede6d7ab80c}</Project>
+      <Name>InterfacesLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
