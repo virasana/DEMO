@@ -5,52 +5,97 @@ namespace ConfigurationSectionsLibrary
 {
     public class ComputerCollection : ConfigurationElementCollection
     {
-        public ComputerConfig this[int index]
+        //public ComputerElement this[int index]
+        //{
+        //    get { return (ComputerElement)BaseGet(index); }
+        //    set
+        //    {
+        //        if (BaseGet(index) != null)
+        //        {
+        //            BaseRemoveAt(index);
+        //        }
+        //        BaseAdd(index, value);
+        //    }
+        //}
+
+        //public void Add(ComputerElement computerConfig)
+        //{
+        //    BaseAdd(computerConfig);
+        //}
+
+        //public void Clear()
+        //{
+        //    BaseClear();
+        //}
+
+        //protected override ConfigurationElement CreateNewElement()
+        //{
+        //    return new ComputerElement();
+        //}
+
+        //protected override object GetElementKey(ConfigurationElement element)
+        //{
+        //    return ((ComputerElement)element).Name;
+        //}
+
+        //public void Remove(ComputerElement computerConfig)
+        //{
+        //    BaseRemove(computerConfig.Name);
+        //}
+
+        //public void RemoveAt(int index)
+        //{
+        //    BaseRemoveAt(index);
+        //}
+
+        //public void Remove(string name)
+        //{
+        //    BaseRemove(name);
+        //}
+
+        internal const string PropertyName = "computer";
+
+        public override ConfigurationElementCollectionType CollectionType
         {
-            get { return (ComputerConfig)BaseGet(index); }
-            set
+            get
             {
-                if (BaseGet(index) != null)
-                {
-                    BaseRemoveAt(index);
-                }
-                BaseAdd(index, value);
+                return ConfigurationElementCollectionType.BasicMapAlternate;
+            }
+        }
+        protected override string ElementName
+        {
+            get
+            {
+                return PropertyName;
             }
         }
 
-        public void Add(ComputerConfig computerConfig)
+        protected override bool IsElementName(string elementName)
         {
-            BaseAdd(computerConfig);
+            return elementName.Equals(PropertyName, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        public void Clear()
+        public override bool IsReadOnly()
         {
-            BaseClear();
+            return false;
         }
 
         protected override ConfigurationElement CreateNewElement()
         {
-            return new ComputerConfig();
+            return new ComputerElement();
         }
 
-        protected override object GetElementKey(ConfigurationElement element)
+        protected override object GetElementKey(ConfigurationElement environmentConfig)
         {
-            return ((ComputerConfig)element).Port;
+            return ((ComputerElement)(environmentConfig)).Name;
         }
 
-        public void Remove(ComputerConfig computerConfig)
+        public ComputerElement this[int idx]
         {
-            BaseRemove(computerConfig.Port);
-        }
-
-        public void RemoveAt(int index)
-        {
-            BaseRemoveAt(index);
-        }
-
-        public void Remove(string name)
-        {
-            BaseRemove(name);
+            get
+            {
+                return (ComputerElement)BaseGet(idx);
+            }
         }
     }
 }

@@ -12,11 +12,29 @@ namespace DemoCustomConfigSections
     {
         static void Main(string[] args)
         {
-            var computerConfigSection = (ComputersConfigurationSection)ConfigurationManager.GetSection("ComputersSection");
+            var environmentsConfig = ConfigurationService.Environments;
 
-            if (computerConfigSection != null) Console.WriteLine(computerConfigSection.Computers.Count);
+            if (environmentsConfig != null)
+            {
+                foreach (EnvironmentElement env in environmentsConfig.Environments)
+                {
+                    Console.WriteLine("{0}",env.Name);
 
+                    foreach (ComputerElement computerConfig in env.Computers)
+                    {
+                        Console.WriteLine("\t{0}", computerConfig.Name);
+
+                        foreach (DriveElement drive in computerConfig.Drives)
+                        {
+                            Console.WriteLine("\t\t{0} ({1})", drive.Name, drive.MinimumSpaceRequired);
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
+
     }
 }
