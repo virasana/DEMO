@@ -4,7 +4,7 @@ using InterfacesLibrary;
 
 namespace ConfigurationSectionsLibrary
 {
-    public class ConfigurationService 
+    public class ConfigurationService
     {
         public static EnvironmentsConfigurationSection Environments
         {
