@@ -18,3 +18,13 @@ D:\DATA\GIT\PLAY\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\Co
 D:\DATA\GIT\PLAY\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\InterfacesLibrary.dll
 D:\DATA\GIT\PLAY\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\ConfigurationSectionsLibrary.pdb
 D:\DATA\GIT\PLAY\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\InterfacesLibrary.pdb
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\DemoCustomConfigSections.exe.config
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\obj\Debug\DemoCustomConfigSections.exe
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\obj\Debug\DemoCustomConfigSections.pdb
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\DemoCustomConfigSections.exe
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\DemoCustomConfigSections.pdb
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\ConfigurationSectionsLibrary.dll
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\InterfacesLibrary.dll
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\ConfigurationSectionsLibrary.pdb
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\bin\Debug\InterfacesLibrary.pdb
+D:\GIT\PLAY\CustomConfigSections\DemoCustomConfigSections\obj\Debug\DemoCustomConfigSections.csprojResolveAssemblyReference.cache

@@ -5,12 +5,7 @@ namespace InterfacesLibrary
 {
     public interface ISettingsProvider
     {
-        IEnumerable Environments { get;  }
-    }
-
-    public interface IEnvironments
-    {
-        IEnumerable Computers { get; }
+        IEnumerable<IEnvironment> Environments { get;  }
     }
 
     public interface IEnvironment
