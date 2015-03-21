@@ -1,0 +1,7 @@
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\bin\Debug\Interfaces.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\bin\Debug\Interfaces.pdb
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\bin\Debug\DomainEntities.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\bin\Debug\DomainEntities.pdb
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\obj\Debug\Interfaces.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\Interfaces\obj\Debug\Interfaces.pdb

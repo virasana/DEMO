@@ -1,0 +1,10 @@
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\LoggingLib.dll.config
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\LoggingLib.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\LoggingLib.pdb
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\Interfaces.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\DomainEntities.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\Interfaces.pdb
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\bin\Debug\DomainEntities.pdb
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\obj\Debug\LoggingLib.csprojResolveAssemblyReference.cache
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\obj\Debug\LoggingLib.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\LoggingLib\obj\Debug\LoggingLib.pdb
