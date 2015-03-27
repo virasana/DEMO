@@ -78,3 +78,8 @@ D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\obj\Debug\ResourceManager_Marku
 D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\obj\Debug\ResourceManager.g.resources
 D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\obj\Debug\ResourceManager.Properties.Resources.resources
 D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\obj\Debug\ResourceManager.csproj.GenerateResource.Cache
+D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\bin\Debug\System.Web.Cors.dll
+D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\bin\Debug\System.Web.Http.Cors.dll
+D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\bin\Debug\System.Web.Http.Cors.xml
+D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\bin\Debug\WebApiContrib.Formatting.Jsonp.dll
+D:\DATA\GIT\PLAY\ResourceManager\ResourceManager\obj\Debug\ResourceManager_Content.g.cs

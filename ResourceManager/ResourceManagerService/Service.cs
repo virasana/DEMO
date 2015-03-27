@@ -14,8 +14,9 @@ namespace ResourceManagerService
         {
             var result = new List<Resource>()
             {
-                new Resource() { Name = "D: on PC1", Type = "DIR" },
-                 new Resource() { Name = "Website 1 on PC2", Type = "IIS" }
+                new Resource() { Name = "D: on PC1", Type = "DIR",MustDelete = false },
+                 new Resource() { Name = "Website 1 on PC2", Type = "IIS", MustDelete = true },
+                 new Resource() { Name = "Website 2 on PC2", Type = "IIS", MustDelete = true}
             };
             return result;
         }

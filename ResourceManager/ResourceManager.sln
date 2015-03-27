@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceManager", "ResourceManager\ResourceManager.csproj", "{3F189F2E-E227-447F-8FBB-91C85D6A2167}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceManagerService", "ResourceManagerService\ResourceManagerService.csproj", "{6BC4FB61-EB1D-4997-B2B8-D7B7A8A427F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{71A4A9A0-E0B6-44F0-85B3-A7F6E193D2E3}"
@@ -20,16 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B8C629
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceManager", "ResourceManager\ResourceManager.csproj", "{3F189F2E-E227-447F-8FBB-91C85D6A2167}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6BC4FB61-EB1D-4997-B2B8-D7B7A8A427F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6BC4FB61-EB1D-4997-B2B8-D7B7A8A427F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BC4FB61-EB1D-4997-B2B8-D7B7A8A427F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +46,10 @@ Global
 		{2F227905-2939-4004-9EDC-B31E7E7BDEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F227905-2939-4004-9EDC-B31E7E7BDEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F227905-2939-4004-9EDC-B31E7E7BDEF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F189F2E-E227-447F-8FBB-91C85D6A2167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

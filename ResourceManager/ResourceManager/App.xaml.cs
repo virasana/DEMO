@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Windows;
 using LoggingLib;
 using Microsoft.Owin.Hosting;
@@ -19,6 +20,8 @@ namespace ResourceManager
 
             WebApp.Start<Startup>(baseUri);
             LoggingService.Instance.WriteLine(string.Format("Server running at {0} - press Enter to quit.", baseUri));
+            var psi = new ProcessStartInfo("chrome.exe", (ConfigurationManager.AppSettings["AppUrl"] + " " + "--start-fullscreen"));
+            Process.Start(psi);
         }
 
         protected override void OnStartup(StartupEventArgs e)
