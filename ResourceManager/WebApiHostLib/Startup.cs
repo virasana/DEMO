@@ -22,10 +22,16 @@ namespace ResourcesWebApiHost
             config.Formatters.Insert(0, new JsonpMediaTypeFormatter(new JsonMediaTypeFormatter()));
             config.EnableCors();
             config.Filters.Add(new CrossDomainAccessFilter());
+ 
             config.Routes.MapHttpRoute(
                 "DefaultApi",
                 "api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
+
+            config.Routes.MapHttpRoute(
+                "Delete",
+                "api/{controller}/Delete/");
+
             return config;
         }
 
@@ -34,6 +40,8 @@ namespace ResourcesWebApiHost
             public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
             {
                 actionExecutedContext.Response.Content.Headers.Add("Access-Control-Allow-Origin", "*");
+                actionExecutedContext.Response.Content.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+                actionExecutedContext.Response.Content.Headers.Add("Access-Control-Allow-Headers","Content-Type, X-Requested-With");
             }
         }
     }

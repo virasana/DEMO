@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DomainEntities;
 using Interfaces;
@@ -19,6 +20,20 @@ namespace ResourceManagerService
                  new Resource() { Name = "Website 2 on PC2", Type = "IIS", MustDelete = true}
             };
             return result;
+        }
+
+        public bool Delete(List<Resource> resources)
+        {
+            if (resources != null)
+            { 
+                resources.ForEach(p => {
+                                           if (p.MustDelete)
+                                           {
+                                               Console.WriteLine("Deleting " + p.Name);
+                                           }
+                });
+            }
+            return true;
         }
     }
 }
