@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -13,20 +15,19 @@ namespace ResourcesWebApiHost
 {
     public class ResourcesController : ApiController
     {
+        [HttpGet, Route("api/Resources/GetAllResources")]
         public List<Resource> GetAllResources()
         {
             var service = new Service();
             return service.GetAllResources();
         }
 
-        [HttpPost]
-        [ActionName("Delete")]
+        [HttpPost, Route("api/Resources/Delete")]
         public HttpResponseMessage Delete(List<Resource> resources)
         {
             var service = new Service();
             var success = service.Delete(resources);
-            var result = new HttpResponseMessage();
-            result.Headers.Add("Access-Control-Allow-Origin", "null");
+            var result = Request.CreateResponse(HttpStatusCode.OK, success.ToString());
             return result;
         }
     }

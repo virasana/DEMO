@@ -20,8 +20,8 @@ namespace ResourceManager
 
             WebApp.Start<Startup>(baseUri);
             LoggingService.Instance.WriteLine(string.Format("Server running at {0} - press Enter to quit.", baseUri));
-            var psi = new ProcessStartInfo("chrome.exe", (ConfigurationManager.AppSettings["AppUrl"] + " " + "--start-fullscreen --new-window"));
-            Process.Start(psi);
+            //var psi = new ProcessStartInfo("chrome.exe", (ConfigurationManager.AppSettings["AppUrl"] + " " + "--start-fullscreen --new-window"));
+            //Process.Start(psi);
         }
 
         protected override void OnStartup(StartupEventArgs e)
