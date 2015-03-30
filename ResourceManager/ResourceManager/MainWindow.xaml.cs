@@ -24,6 +24,7 @@ namespace ResourceManager
         public MainWindow()
         {
             InitializeComponent();
+            WebBrowser1.Navigate(ConfigurationManager.AppSettings["AppUrl"]);
         }
     }
 }

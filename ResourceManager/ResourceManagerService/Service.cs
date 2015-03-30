@@ -16,8 +16,8 @@ namespace ResourceManagerService
             var result = new List<Resource>()
             {
                 new Resource() { Name = "D: on PC1", Type = "DIR",MustDelete = false },
-                 new Resource() { Name = "Website 1 on PC2", Type = "IIS", MustDelete = true },
-                 new Resource() { Name = "Website 2 on PC2", Type = "IIS", MustDelete = true}
+                new Resource() { Name = "Website 1 on PC2", Type = "IIS", MustDelete = true },
+                new Resource() { Name = "Website 2 on PC2", Type = "IIS", MustDelete = true}
             };
             return result;
         }
@@ -25,14 +25,17 @@ namespace ResourceManagerService
         public bool Delete(List<Resource> resources)
         {
             if (resources != null)
-            { 
-                resources.ForEach(p => {
-                                           if (p.MustDelete)
-                                           {
-                                               Console.WriteLine("Deleting " + p.Name);
-                                           }
+            {
+                resources.ForEach(p =>
+                {
+                    if (p.MustDelete)
+                    {
+                        Console.WriteLine("Deleting " + p.Name);
+                    }
                 });
             }
+
+            Thread.Sleep(1000);
             return true;
         }
     }

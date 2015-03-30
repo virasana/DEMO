@@ -7,12 +7,14 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using DomainEntities;
 using Interfaces;
 using ResourceManagerService;
 
 namespace ResourcesWebApiHost
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ResourcesController : ApiController
     {
         [HttpGet, Route("api/Resources/GetAllResources")]
