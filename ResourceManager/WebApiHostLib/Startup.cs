@@ -25,7 +25,7 @@ namespace ResourcesWebApiHost
         private HttpConfiguration ConfigureWebApi()
         {
             var config = new HttpConfiguration();
-            var corsAttr = new EnableCorsAttribute("http://localhost:5000/", "*", "*");
+            var corsAttr = new EnableCorsAttribute("*", "*", "*");
             config.Formatters.Insert(0, new JsonpMediaTypeFormatter(new JsonMediaTypeFormatter()));
             config.EnableCors();
             config.Filters.Add(new CrossDomainAccessFilter());
@@ -47,7 +47,7 @@ namespace ResourcesWebApiHost
 
             public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
             {
-                if (actionExecutedContext.Response.Content != null)
+                if (actionExecutedContext.Response != null && actionExecutedContext.Response.Content != null)
                 {
                     actionExecutedContext.Response.Content.Headers.Add("Access-Control-Allow-Origin", "null");
                     actionExecutedContext.Response.Content.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
