@@ -22,20 +22,9 @@ namespace ResourceManagerService
             return result;
         }
 
-        public bool Delete(List<Resource> resources)
+        public bool Delete(Resource resource)
         {
-            if (resources != null)
-            {
-                resources.ForEach(p =>
-                {
-                    if (p.MustDelete)
-                    {
-                        Console.WriteLine("Deleting " + p.Name);
-                    }
-                });
-            }
-
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
             return true;
         }
     }

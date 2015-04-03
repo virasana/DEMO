@@ -10,6 +10,6 @@ namespace Interfaces
     public interface IResourcesService
     {
         List<Resource> GetAllResources();
-        bool Delete(List<Resource> resources);
+        bool Delete(Resource resource);
     }
 }

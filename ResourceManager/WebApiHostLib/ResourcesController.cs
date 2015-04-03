@@ -25,10 +25,10 @@ namespace ResourcesWebApiHost
         }
 
         [HttpPost, Route("api/Resources/Delete")]
-        public HttpResponseMessage Delete(List<Resource> resources)
+        public HttpResponseMessage Delete(Resource resource)
         {
             var service = new Service();
-            var success = service.Delete(resources);
+            var success = service.Delete(resource);
             var result = Request.CreateResponse(HttpStatusCode.OK, success.ToString());
             return result;
         }
