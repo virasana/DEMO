@@ -22,9 +22,15 @@ namespace ResourceManagerService
             return result;
         }
 
-        public bool Delete(Resource resource)
+        public bool DeleteSingle(Resource resource)
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
+            return true;
+        }
+
+        public bool DeleteList(List<Resource> resources)
+        {
+            Thread.Sleep(1000);
             return true;
         }
     }

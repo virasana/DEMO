@@ -24,11 +24,20 @@ namespace ResourcesWebApiHost
             return service.GetAllResources();
         }
 
-        [HttpPost, Route("api/Resources/Delete")]
-        public HttpResponseMessage Delete(Resource resource)
+        [HttpPost, Route("api/Resources/DeleteSingle")]
+        public HttpResponseMessage DeleteSingle(Resource resource)
         {
             var service = new Service();
-            var success = service.Delete(resource);
+            var success = service.DeleteSingle(resource);
+            var result = Request.CreateResponse(HttpStatusCode.OK, success.ToString());
+            return result;
+        }
+
+        [HttpPost, Route("api/Resources/DeleteList")]
+        public HttpResponseMessage DeleteList(List<Resource> resources)
+        {
+            var service = new Service();
+            var success = service.DeleteList(resources);
             var result = Request.CreateResponse(HttpStatusCode.OK, success.ToString());
             return result;
         }
