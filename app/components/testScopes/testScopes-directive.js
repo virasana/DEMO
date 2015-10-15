@@ -7,6 +7,7 @@ angular.module('myApp.testScopes.testScopes-directive', [])
     return {
         templateUrl: 'components/testScopes/testScopesTemplate.html',
         scope: {
+            nameprop: "=",
             local: "=nameprop",
             cityFn: "&city"
         }

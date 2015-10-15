@@ -1,3 +1,7 @@
 <div>
-    <p>Name: {{local}}, City: {{cityFn()}}</p>
+    <p>Name (using 'nameprop'): {{nameprop}}, City: {{cityFn()}}</p>
+    <p>Name (using 'local'): {{local}}, City: {{cityFn()}}</p>
+    <p>Note: the difference in the above is the use of an alias in the directive scope variable names.</p>
+    <p>When an alias is not used ('nameprop', above), the same name is used on the view, the directive scope and the template.</p>
+    <hr/>
 </div>
