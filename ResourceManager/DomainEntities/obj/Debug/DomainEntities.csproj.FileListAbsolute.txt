@@ -1,0 +1,10 @@
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\DomainEntities\bin\Debug\DomainEntities.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\DomainEntities\bin\Debug\DomainEntities.pdb
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\DomainEntities\obj\Debug\DomainEntities.csprojResolveAssemblyReference.cache
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\DomainEntities\obj\Debug\DomainEntities.dll
+D:\DATA\GIT\ResourceManager\PLAY\ResourceManager\DomainEntities\obj\Debug\DomainEntities.pdb
+D:\DATA\GIT\PLAY\ResourceManager\DomainEntities\bin\Debug\DomainEntities.dll
+D:\DATA\GIT\PLAY\ResourceManager\DomainEntities\bin\Debug\DomainEntities.pdb
+D:\DATA\GIT\PLAY\ResourceManager\DomainEntities\obj\Debug\DomainEntities.csprojResolveAssemblyReference.cache
+D:\DATA\GIT\PLAY\ResourceManager\DomainEntities\obj\Debug\DomainEntities.dll
+D:\DATA\GIT\PLAY\ResourceManager\DomainEntities\obj\Debug\DomainEntities.pdb

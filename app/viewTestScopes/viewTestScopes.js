@@ -9,6 +9,12 @@ angular.module('myApp.viewTestScopes', ['ngRoute'])
   });
 }])
 
-.controller('viewTestScopesCtrl', [function() {
-
+.controller('viewTestScopesCtrl', ['$scope', function ($scope) {
+    $scope.theData = {
+        name: 'Jean-Pierre',
+        calculateSomething: function () {
+            return 'banana';
+        }
+    };
+    
 }]);

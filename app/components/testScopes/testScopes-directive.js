@@ -3,7 +3,13 @@
 angular.module('myApp.testScopes.testScopes-directive', [])
 
 .directive('testScopes', ['data', function(data) {
-  return function(scope, elm, attrs) {
-    elm.text(data);
-  };
+
+    return {
+        templateUrl: 'components/testScopes/testScopesTemplate.html',
+        scope: {
+            data: "=nameprop",
+            calculatedData: "&functionprop"
+        }
+    }
+    
 }]);

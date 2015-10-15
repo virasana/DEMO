@@ -1,0 +1,13 @@
+﻿@using Domain.Entities
+@model WebUI.Models.ProductsListViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+@foreach (var p in Model.Products)
+{
+    @Html.Partial("ProductSummary", p)
+}
+
+<div class="pager">@Html.PageLinks(Model.PagingInfoViewModel, (page, category) => Url.Action("List", new { page = page, category = category }))</div>
