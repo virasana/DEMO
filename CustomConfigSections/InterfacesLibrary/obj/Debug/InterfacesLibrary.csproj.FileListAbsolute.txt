@@ -1,4 +1,0 @@
-D:\DATA\GIT\PLAY\CustomConfigSections\InterfacesLibrary\bin\Debug\InterfacesLibrary.dll
-D:\DATA\GIT\PLAY\CustomConfigSections\InterfacesLibrary\bin\Debug\InterfacesLibrary.pdb
-D:\DATA\GIT\PLAY\CustomConfigSections\InterfacesLibrary\obj\Debug\InterfacesLibrary.dll
-D:\DATA\GIT\PLAY\CustomConfigSections\InterfacesLibrary\obj\Debug\InterfacesLibrary.pdb
