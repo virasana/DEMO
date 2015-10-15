@@ -1,1 +1,1 @@
-This project demonstrated the use if scopes in AngularJS
+This project demonstrates the use of scopes in AngularJS.
