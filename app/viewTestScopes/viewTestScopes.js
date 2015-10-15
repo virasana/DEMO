@@ -10,11 +10,13 @@ angular.module('myApp.viewTestScopes', ['ngRoute'])
 }])
 
 .controller('viewTestScopesCtrl', ['$scope', function ($scope) {
-    $scope.theData = {
-        name: 'Jean-Pierre',
-        calculateSomething: function () {
-            return 'banana';
-        }
+    $scope.data = {
+        name: "Adam",
+        defaultCity: "London"
     };
+
+    $scope.getCity = function (name) {
+        return name == "Adam" ? $scope.data.defaultCity : "Unknown";
+    }
     
 }]);

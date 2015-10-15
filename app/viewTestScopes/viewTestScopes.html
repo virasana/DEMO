@@ -1,4 +1,6 @@
-<div>
-    <div><span>Controller Scope: {{theData.name}}</span></div>
-    <span test-scopes nameprop="theData.name" functionprop="theData.calculateSomething()"></span>
+<div ng-controller="viewTestScopesCtrl">
+    <div>
+        <div>Direct Binding: <input ng-model="data.name" /></div>
+        <div test-Scopes city="getCity(data.name)" nameprop="data.name"></div>
+    </div>
 </div>

@@ -7,9 +7,8 @@ angular.module('myApp.testScopes.testScopes-directive', [])
     return {
         templateUrl: 'components/testScopes/testScopesTemplate.html',
         scope: {
-            data: "=nameprop",
-            calculatedData: "&functionprop"
+            local: "=nameprop",
+            cityFn: "&city"
         }
-    }
-    
+    }   
 }]);
