@@ -1,22 +1,16 @@
 'use strict';
 
-angular.module('myApp.viewTestScopes', ['ngRoute'])
+angular.module('myApp.viewAdvancedDirectives', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/viewTestScopes', {
-    templateUrl: 'viewTestScopes/viewTestScopes.html',
-    controller: 'viewTestScopesCtrl'
+  $routeProvider.when('/viewAdvancedDirectives', {
+    templateUrl: 'viewAdvancedDirectives/viewAdvancedDirectives.html',
+    controller: 'viewAdvancedDirectivesCtrl'
   });
 }])
 
-.controller('viewTestScopesCtrl', ['$scope', function ($scope) {
-    $scope.data = {
-        name: "Adam",
-        defaultCity: "London"
-    };
+.value("data", "Some Value Data")
 
-    $scope.getCity = function (name) {
-        return name == "Adam" ? $scope.data.defaultCity : "Unknown";
-    }
-    
+.controller('viewAdvancedDirectivesCtrl', ['$scope', 'data', function ($scope, data) {
+    $scope.data = data;
 }]);

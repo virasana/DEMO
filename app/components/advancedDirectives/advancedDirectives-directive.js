@@ -7,9 +7,7 @@ angular.module('myApp.advancedDirectives.advancedDirectives-directive', [])
     return {
         templateUrl: 'components/advancedDirectives/advancedDirectivesTemplate.html',
         scope: {
-            nameprop: "=",
-            local: "=nameprop",
-            cityFn: "&city"
+            data: "=data",
         }
     }   
 }]);
