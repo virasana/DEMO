@@ -11,4 +11,5 @@ angular.module('myApp.viewAdvancedDirectives', ['ngRoute'])
 
 .controller('viewAdvancedDirectivesCtrl', ['$scope', 'data', function ($scope, data) {
     $scope.data = data;
+    $scope.theViewFormat = 'ss'
 }]);

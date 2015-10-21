@@ -9,9 +9,10 @@ angular.module('myApp.advancedDirectives.advancedDirectives-directive', [])
         var format,
             timeoutId;
 
-        scope.$watch(attrs.advancedDirectives, function (theFormat) {
+
+        attrs.$observe('advancedDirectives', function (theFormat) {
             format = theFormat;
-            console.log(theFormat);
+            console.log('format changed: ' + format);
             updateTime();
         });
 
@@ -27,12 +28,15 @@ angular.module('myApp.advancedDirectives.advancedDirectives-directive', [])
 
     function updateTime() {
         scope.directiveScope2 = dateFilter(new Date(), format);
+        console.log('updateTime: ' + format + dateFilter(new Date(), format));
     }
 }
 
     var theScope = {
-    directiveScope1: '=info'
-}
+        directiveScope1: '@info',
+        directiveScope2: '@advancedDirectives'
+
+    }
 
 return {
     templateUrl: 'components/advancedDirectives/advancedDirectivesTemplate.html',
