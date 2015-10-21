@@ -9,8 +9,6 @@ angular.module('myApp.viewAdvancedDirectives', ['ngRoute'])
   });
 }])
 
-.value("data", "Some Value Data")
-
 .controller('viewAdvancedDirectivesCtrl', ['$scope', 'data', function ($scope, data) {
     $scope.data = data;
 }]);

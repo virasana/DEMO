@@ -1,5 +1,7 @@
 <div ng-controller="viewAdvancedDirectivesCtrl">
     <div>
-        <div>Direct Binding: {{data}}</div>
+        <div>Data directly from the 'data' service, configured as a value service: {{data.name}} {{data.surname}}</div>
+        <!--<div><input ng-model="theViewFormat"/>{{theViewFormat}}</div>-->
+        <div>Data from the directive scope: <span advanced-directives="'dd-MMMM-yy hh:mm:ss a'" info='data'></span></div>
     </div>
 </div>
